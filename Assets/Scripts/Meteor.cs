@@ -15,6 +15,7 @@ public class Meteor : MonoBehaviour
   void Update()
   {
     ProcessDownWard();
+    Destroy(gameObject, 10f);
   }
 
   void ProcessDownWard()
