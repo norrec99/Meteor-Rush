@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-  [SerializeField] float xForce = 5f;
+  public float xForce;
   // Start is called before the first frame update
   void Start()
   {
@@ -20,6 +20,7 @@ public class Meteor : MonoBehaviour
 
   void ProcessDownWard()
   {
+    xForce = Random.Range(5f, 7f);
     transform.position += (Vector3.down * xForce) * Time.deltaTime;
   }
 }
