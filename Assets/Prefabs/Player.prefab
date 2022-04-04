@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae46dfaef38a6a4583874aaf67e2073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 7015459199823050345, guid: 91f5a1423bc020f428dd79d6772f25b2, type: 3}
-  speed: 700
+  target: {fileID: 0}
+  smoothTime: 0.3
+  joystick: {fileID: 0}
+  speed: 300
 --- !u!61 &7401871707999008948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!114 &7401871707999008946
 MonoBehaviour:
   m_ObjectHideFlags: 0

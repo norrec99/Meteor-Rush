@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-  public Joystick joystick;
 
-  public float speed = 800f;
+  public float moveSpeed = 0.2f;
 
-  Rigidbody2D rb;
-
-  void Start()
+  void FixedUpdate()
   {
-    rb = GetComponent<Rigidbody2D>();
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-    ProcessMove();
+    TouchMove();
 
   }
 
-  void ProcessMove()
+  void TouchMove()
   {
-    float x = joystick.Horizontal; //Equals the joystick handle's position from the center of the joystick on the horizontal axis
+    if (Input.GetMouseButton(0))
+    {
+      Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-    Vector3 moveDirection = transform.right * x; //Direction of movement
-
-    rb.velocity = moveDirection * speed * Time.deltaTime; //Velocity of movement
+      if (mousePos.x > 1)
+      {
+        //move right
+        transform.Translate(moveSpeed, 0, 0);
+      }
+      else if (mousePos.x < -1)
+      {
+        //move left
+        transform.Translate(-moveSpeed, 0, 0);
+      }
+    }
   }
 }
