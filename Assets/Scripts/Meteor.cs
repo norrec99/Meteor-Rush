@@ -5,11 +5,6 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
   public float xForce;
-  // Start is called before the first frame update
-  void Start()
-  {
-
-  }
 
   // Update is called once per frame
   void Update()
@@ -20,7 +15,7 @@ public class Meteor : MonoBehaviour
 
   void ProcessDownWard()
   {
-    xForce = Random.Range(5f, 7f);
+    xForce = Random.Range(1f, 5f);
     transform.position += (Vector3.down * xForce) * Time.deltaTime;
   }
 }

@@ -22,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
       if (mousePos.x > 1)
       {
         //move right
-        transform.Translate(moveSpeed, 0, 0);
+        transform.Translate(0, -moveSpeed, 0);
       }
       else if (mousePos.x < -1)
       {
         //move left
-        transform.Translate(-moveSpeed, 0, 0);
+        transform.Translate(0, moveSpeed, 0);
       }
     }
   }
