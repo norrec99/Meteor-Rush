@@ -7,15 +7,15 @@ public class Meteor : MonoBehaviour
   public float xForce;
 
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
     ProcessDownWard();
-    Destroy(gameObject, 10f);
+    Destroy(gameObject, 5f);
   }
 
   void ProcessDownWard()
   {
-    xForce = Random.Range(1f, 5f);
-    transform.position += (Vector3.down * xForce) * Time.deltaTime;
+    xForce = Random.Range(0.05f, 0.3f);
+    transform.position += (Vector3.down * xForce);
   }
 }
