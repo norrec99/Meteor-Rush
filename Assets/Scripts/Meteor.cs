@@ -5,17 +5,29 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
   public float xForce;
+  float accelerator;
 
   // Update is called once per frame
   void FixedUpdate()
   {
     ProcessDownWard();
-    Destroy(gameObject, 5f);
+    Destroy(gameObject, 10f);
   }
 
   void ProcessDownWard()
   {
-    xForce = Random.Range(0.05f, 0.3f);
-    transform.position += (Vector3.down * xForce);
+    accelerator = Time.time * 0.01f;
+
+    if (accelerator >= 0.3)
+    {
+      accelerator = 0.3f;
+      xForce = Random.Range(0.5f, 1f);
+      transform.position += (Vector3.down * xForce * accelerator);
+    }
+    else
+    {
+      xForce = Random.Range(1f, 1.5f);
+      transform.position += (Vector3.down * xForce * accelerator);
+    }
   }
 }

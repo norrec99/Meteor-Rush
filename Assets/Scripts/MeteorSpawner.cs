@@ -25,7 +25,7 @@ public class MeteorSpawner : MonoBehaviour
 
   void SpawnHugeMeteor()
   {
-    if (Time.time - hugeMeteorLastSpawnTime >= Random.Range(4f, 10f))
+    if (Time.time - hugeMeteorLastSpawnTime >= Random.Range(8f, 15f))
     {
       Instantiate(hugeMeteor, new Vector3(hugeMeteor.transform.position.x + Random.Range(-2.5f, 2.5f), hugeMeteor.transform.position.y + 5f, hugeMeteor.transform.position.z), Quaternion.identity);
       hugeMeteorLastSpawnTime = Time.time;
@@ -33,7 +33,7 @@ public class MeteorSpawner : MonoBehaviour
   }
   void SpawnBigMeteor()
   {
-    if (Time.time - bigMeteorLastSpawnTime >= Random.Range(3f, 7f))
+    if (Time.time - bigMeteorLastSpawnTime >= Random.Range(5f, 10f))
     {
       Instantiate(bigMeteor, new Vector3(bigMeteor.transform.position.x + Random.Range(-2.5f, 2.5f), bigMeteor.transform.position.y + 5f, bigMeteor.transform.position.z), Quaternion.identity);
       bigMeteorLastSpawnTime = Time.time;
