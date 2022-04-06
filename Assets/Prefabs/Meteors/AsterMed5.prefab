@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5261941954778836589}
   - component: {fileID: 1794811140531814879}
   - component: {fileID: 3129626739316348642}
+  - component: {fileID: 1074507767145253237}
   m_Layer: 0
   m_Name: AsterMed5
-  m_TagString: Untagged
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,3 +166,15 @@ PolygonCollider2D:
       - {x: 0.43271452, y: -0.28377455}
       - {x: 0.5778159, y: -0.26544866}
       - {x: 0.59, y: -0.0658721}
+--- !u!114 &1074507767145253237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456430272389404031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c3f85b787b75c4d98769d107fb5d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 5972641206058334792}
   - component: {fileID: 6118017757622191808}
   - component: {fileID: 2595401055256125176}
-  - component: {fileID: 7427238928479615296}
+  - component: {fileID: 5143610153884079433}
+  - component: {fileID: 6538626840020875918}
   m_Layer: 0
   m_Name: AsterHuge3
-  m_TagString: Untagged
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,8 +122,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!70 &7427238928479615296
-CapsuleCollider2D:
+--- !u!114 &5143610153884079433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259055411905622476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c3f85b787b75c4d98769d107fb5d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &6538626840020875918
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,5 +148,55 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.77, y: 2.8}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.04, y: 2.8}
+    newSize: {x: 3.04, y: 2.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.2814412, y: -0.7152549}
+      - {x: 1.3457645, y: -0.57525486}
+      - {x: 1.4148333, y: -0.34906864}
+      - {x: 1.52, y: -0.0818627}
+      - {x: 1.3981371, y: -0.020843104}
+      - {x: 1.1812643, y: 0.2431515}
+      - {x: 1.0515293, y: 0.24576473}
+      - {x: 1.1443235, y: 0.7305099}
+      - {x: 0.94, y: 1.0138136}
+      - {x: 0.5381372, y: 0.9890686}
+      - {x: 0.3505098, y: 1.2443235}
+      - {x: 0.046186265, y: 1.2581372}
+      - {x: -0.03855882, y: 1.3752549}
+      - {x: -0.29050982, y: 1.3257648}
+      - {x: -0.5428823, y: 1.2657647}
+      - {x: -0.8290686, y: 1.3257647}
+      - {x: -0.87679195, y: 1.0437825}
+      - {x: -1.1981373, y: 0.9723725}
+      - {x: -1.2133921, y: 0.6571177}
+      - {x: -1.4923726, y: 0.40390196}
+      - {x: -1.52, y: 0.44}
+      - {x: -1.4086471, y: 0.12925258}
+      - {x: -1.4272058, y: -0.03711766}
+      - {x: -1.456696, y: -0.12949015}
+      - {x: -1.4290686, y: -0.40762746}
+      - {x: -1.38, y: -0.5}
+      - {x: -1.1766962, y: -0.5628823}
+      - {x: -1.1305097, y: -0.9}
+      - {x: -0.94288236, y: -1.0352548}
+      - {x: -0.7540989, y: -0.997993}
+      - {x: -0.5195784, y: -1.1828824}
+      - {x: -0.44919136, y: -1.1119614}
+      - {x: -0.18762743, y: -1.2028824}
+      - {x: 0.0752549, y: -1.2639021}
+      - {x: 0.27172494, y: -1.3797361}
+      - {x: 0.54762745, y: -1.3133922}
+      - {x: 0.7828824, y: -1.2966961}
+      - {x: 0.86906856, y: -1.1781373}
+      - {x: 0.8392079, y: -0.9780425}
+      - {x: 1.0799999, y: -0.91999996}
+      - {x: 1.1999999, y: -0.79813725}
