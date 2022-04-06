@@ -7,7 +7,6 @@ public class Meteor : MonoBehaviour
   public float xForce;
   float accelerator;
 
-  // Update is called once per frame
   void FixedUpdate()
   {
     ProcessDownWard();
@@ -16,7 +15,7 @@ public class Meteor : MonoBehaviour
 
   void ProcessDownWard()
   {
-    accelerator = Time.time * 0.01f;
+    accelerator = Time.timeSinceLevelLoad * 0.01f;
 
     if (accelerator >= 0.3)
     {
