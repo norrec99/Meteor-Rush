@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-  public float xForce;
+  public float xForce = 0.7f;
   float accelerator;
 
   void FixedUpdate()
@@ -17,15 +17,13 @@ public class Meteor : MonoBehaviour
   {
     accelerator = Time.timeSinceLevelLoad * 0.01f;
 
-    if (accelerator >= 0.3)
+    if (accelerator >= 0.25f)
     {
-      accelerator = 0.3f;
-      xForce = Random.Range(0.5f, 1f);
+      accelerator = 0.25f;
       transform.position += (Vector3.down * xForce * accelerator);
     }
     else
     {
-      xForce = Random.Range(1f, 1.5f);
       transform.position += (Vector3.down * xForce * accelerator);
     }
   }
