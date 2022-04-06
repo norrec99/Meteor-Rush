@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-  public float xForce = 0.7f;
+  float xForce = 0.7f;
   float accelerator;
 
   void FixedUpdate()
