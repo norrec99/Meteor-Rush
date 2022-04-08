@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
 
-  int score;
+  float score;
 
   Text scoreText;
 
@@ -17,10 +17,19 @@ public class ScoreBoard : MonoBehaviour
     scoreText.text = "Score: " + score;
   }
 
-  public void IncreaseScore(int amountToIncrease)
+  public void IncreaseScore(float amountToIncrease)
   {
     score += amountToIncrease;
-    scoreText.text = "Score: " + score.ToString();
+    float totalScore = Mathf.RoundToInt(score);
+    scoreText.text = "Score: " + totalScore.ToString();
+  }
+
+  public void IncreaseScoreWithMultiplier(float amountToIncrease, float multiplier)
+  {
+    score += amountToIncrease * multiplier;
+    int totalScore = Mathf.RoundToInt(score);
+    int multiplierScore = Mathf.RoundToInt(multiplier * 10);
+    scoreText.text = "Score: " + totalScore.ToString() + " x" + multiplierScore.ToString();
   }
 
 }
