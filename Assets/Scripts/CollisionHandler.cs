@@ -22,7 +22,7 @@ public class CollisionHandler : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetTouch(0).tapCount == 2 && isCollided)
+    if (Input.touchCount > 0)
     {
       ReloadLevel();
     }
@@ -49,7 +49,11 @@ public class CollisionHandler : MonoBehaviour
 
   void ReloadLevel()
   {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    isCollided = false;
+    if (Input.GetTouch(0).tapCount == 2 && isCollided)
+    {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      isCollided = false;
+
+    }
   }
 }
