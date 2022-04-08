@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5972641206058334792}
   - component: {fileID: 6118017757622191808}
   - component: {fileID: 2595401055256125176}
-  - component: {fileID: 5143610153884079433}
   - component: {fileID: 6538626840020875918}
+  - component: {fileID: -2259033191822003039}
   m_Layer: 0
   m_Name: AsterHuge3
   m_TagString: Meteor
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99caf9fe1940384b8bf67b41b365323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xForce: 0
 --- !u!50 &2595401055256125176
 Rigidbody2D:
   serializedVersion: 4
@@ -122,18 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &5143610153884079433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3259055411905622476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c3f85b787b75c4d98769d107fb5d91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &6538626840020875918
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -200,3 +187,17 @@ PolygonCollider2D:
       - {x: 0.8392079, y: -0.9780425}
       - {x: 1.0799999, y: -0.91999996}
       - {x: 1.1999999, y: -0.79813725}
+--- !u!114 &-2259033191822003039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259055411905622476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c3f85b787b75c4d98769d107fb5d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 0}
+  levelLoadDelay: 2
