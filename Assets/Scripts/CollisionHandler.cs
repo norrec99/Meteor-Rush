@@ -10,6 +10,7 @@ public class CollisionHandler : MonoBehaviour
   // [SerializeField] float levelLoadDelay = 2f;
 
   GameOver gameOver;
+  BlinkingText blinkingText;
 
   bool isCollided = false;
 
@@ -17,6 +18,8 @@ public class CollisionHandler : MonoBehaviour
   void Start()
   {
     gameOver = FindObjectOfType<GameOver>();
+    blinkingText = FindObjectOfType<BlinkingText>();
+    blinkingText.StopBlinking();
   }
 
   // Update is called once per frame
@@ -34,7 +37,7 @@ public class CollisionHandler : MonoBehaviour
     {
       StartCrashSequence();
       gameOver.GameOverText();
-
+      blinkingText.StartBlinking();
     }
 
   }
@@ -52,6 +55,7 @@ public class CollisionHandler : MonoBehaviour
     if (Input.GetTouch(0).tapCount == 2 && isCollided)
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      blinkingText.StopBlinking();
       isCollided = false;
 
     }
