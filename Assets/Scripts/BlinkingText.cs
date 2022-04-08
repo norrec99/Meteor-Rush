@@ -11,7 +11,8 @@ public class BlinkingText : MonoBehaviour
   void Start()
   {
     text = GetComponent<Text>();
-    StartBlinking();
+    // StartBlinking();
+    text.GetComponent<Text>().enabled = false;
   }
 
   IEnumerator Blink()
@@ -34,6 +35,7 @@ public class BlinkingText : MonoBehaviour
 
   public void StartBlinking()
   {
+    text.GetComponent<Text>().enabled = true;
     StopCoroutine("Blink");
     StartCoroutine("Blink");
   }
