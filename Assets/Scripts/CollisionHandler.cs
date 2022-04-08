@@ -22,7 +22,7 @@ public class CollisionHandler : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.touchCount > 1 && isCollided)
+    if (Input.GetTouch(0).tapCount == 2 && isCollided)
     {
       ReloadLevel();
     }
