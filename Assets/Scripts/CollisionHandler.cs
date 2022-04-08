@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-
   [SerializeField] ParticleSystem explosionParticle;
   // [SerializeField] float levelLoadDelay = 2f;
 
+  GameObject[] meteors;
+  MeteorSpawner meteorSpawner;
+  GameManager gameManager;
   GameOver gameOver;
+  ScoreCalculator scoreCalculator;
   BlinkingText blinkingText;
 
   bool isCollided = false;
@@ -17,7 +20,10 @@ public class CollisionHandler : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    gameManager = FindObjectOfType<GameManager>();
+    meteorSpawner = FindObjectOfType<MeteorSpawner>();
     gameOver = FindObjectOfType<GameOver>();
+    scoreCalculator = FindObjectOfType<ScoreCalculator>();
     blinkingText = FindObjectOfType<BlinkingText>();
     blinkingText.StopBlinking();
   }
@@ -25,10 +31,12 @@ public class CollisionHandler : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.touchCount > 0)
+    if (Input.touchCount > 0 && isCollided)
     {
       ReloadLevel();
+      blinkingText.StopBlinking();
     }
+
   }
 
   void OnCollisionEnter2D(Collision2D other)
@@ -37,16 +45,29 @@ public class CollisionHandler : MonoBehaviour
     {
       StartCrashSequence();
       gameOver.GameOverText();
-      blinkingText.StartBlinking();
+      DestroyClones();
     }
 
+  }
+
+  void DestroyClones()
+  {
+    meteorSpawner.GetComponent<MeteorSpawner>().enabled = false;
+    meteors = GameObject.FindGameObjectsWithTag("Meteor");
+    foreach (GameObject meteor in meteors)
+    {
+      Destroy(meteor);
+    }
   }
 
   void StartCrashSequence()
   {
     isCollided = true;
     explosionParticle.Play();
+    blinkingText.StartBlinking();
     GetComponent<PlayerMovement>().enabled = false;
+    scoreCalculator.GetComponent<ScoreCalculator>().enabled = false;
+    // gameManager.DestroyPlayer();
     // Destroy(gameObject, 0.5f);
   }
 
@@ -54,8 +75,8 @@ public class CollisionHandler : MonoBehaviour
   {
     if (Input.GetTouch(0).tapCount == 2 && isCollided)
     {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
       blinkingText.StopBlinking();
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
       isCollided = false;
 
     }
