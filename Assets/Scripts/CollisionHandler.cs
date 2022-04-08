@@ -5,34 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+
+  [SerializeField] ParticleSystem explosionParticle;
+  // [SerializeField] float levelLoadDelay = 2f;
+
+  GameOver gameOver;
+
+  bool isCollided = false;
+
   // Start is called before the first frame update
   void Start()
   {
-
+    gameOver = FindObjectOfType<GameOver>();
   }
 
   // Update is called once per frame
   void Update()
   {
-    ReloadLevel();
+    if (Input.touchCount > 1 && isCollided)
+    {
+      ReloadLevel();
+    }
   }
 
   void OnCollisionEnter2D(Collision2D other)
   {
-    if (other.gameObject.tag == "Player")
+    if (other.gameObject.tag == "Meteor")
     {
-      Debug.Log(other.gameObject);
-      // Destroy(other.gameObject);
-      Time.timeScale = 0f;
+      StartCrashSequence();
+      gameOver.GameOverText();
+
     }
+
+  }
+
+  void StartCrashSequence()
+  {
+    isCollided = true;
+    explosionParticle.Play();
+    GetComponent<PlayerMovement>().enabled = false;
+    // Destroy(gameObject, 0.5f);
   }
 
   void ReloadLevel()
   {
-    if (Time.timeScale == 0f && Input.touchCount > 1)
-    {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-      Time.timeScale = 1f;
-    }
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    isCollided = false;
   }
 }
