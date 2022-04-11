@@ -29,12 +29,10 @@ public class Meteor : MonoBehaviour
     {
       accelerator = 0.3f;
       transform.position += (Vector3.down * xForce * accelerator);
-      Debug.Log("speed: " + accelerator * xForce);
     }
     else
     {
       transform.position += (Vector3.down * xForce * accelerator);
-      Debug.Log("speed: " + accelerator * xForce);
     }
   }
 }
