@@ -11,7 +11,6 @@ public class BlinkingText : MonoBehaviour
   void Start()
   {
     text = GetComponent<Text>();
-    // StartBlinking();
     text.GetComponent<Text>().enabled = false;
   }
 

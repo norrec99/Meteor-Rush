@@ -37,7 +37,6 @@ public class CollisionHandler : MonoBehaviour
     if (Input.touchCount > 0 && isCollided)
     {
       ReloadLevel();
-      blinkingText.StopBlinking();
     }
 
   }
