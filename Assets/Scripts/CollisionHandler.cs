@@ -11,7 +11,6 @@ public class CollisionHandler : MonoBehaviour
 
   GameObject[] meteors;
   MeteorSpawner meteorSpawner;
-  GameManager gameManager;
   GameOver gameOver;
   ScoreCalculator scoreCalculator;
   BlinkingText blinkingText;
@@ -22,7 +21,6 @@ public class CollisionHandler : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    gameManager = FindObjectOfType<GameManager>();
     meteorSpawner = FindObjectOfType<MeteorSpawner>();
     gameOver = FindObjectOfType<GameOver>();
     scoreCalculator = FindObjectOfType<ScoreCalculator>();
@@ -69,6 +67,7 @@ public class CollisionHandler : MonoBehaviour
     audioSource.PlayOneShot(explosionAudio);
     blinkingText.StartBlinking();
     GetComponent<PlayerMovement>().enabled = false;
+    GetComponent<SpriteRenderer>().enabled = false;
     scoreCalculator.GetComponent<ScoreCalculator>().enabled = false;
   }
 

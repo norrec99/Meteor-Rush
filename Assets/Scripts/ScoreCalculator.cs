@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
-  [SerializeField] float multiplier = 0.1f;
+  [SerializeField] float multiplier = 0.001f;
   [SerializeField] float scorePerSecond = 5f;
 
   ScoreBoard scoreBoard;
@@ -24,25 +24,25 @@ public class ScoreCalculator : MonoBehaviour
 
   void CalculateScore()
   {
-    if (Time.timeSinceLevelLoad < 5)
+    if (Time.timeSinceLevelLoad > 5)
     {
       totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScore(totalScore);
-    }
-    else if (Time.timeSinceLevelLoad > 5)
-    {
-      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.2f);
+      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.005f);
     }
     else if (Time.timeSinceLevelLoad > 15)
     {
       totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.3f);
+      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.01f);
     }
     else if (Time.timeSinceLevelLoad > 25)
     {
       totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.5f);
+      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.05f);
+    }
+    else
+    {
+      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
+      scoreBoard.IncreaseScore(totalScore);
     }
   }
 }
