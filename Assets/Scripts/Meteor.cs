@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-  float xForce = 0.7f;
-  float accelerator;
+  public float xForce = 0.7f;
+  public float accelerator;
+
+  DisplaySpeed displaySpeed;
+
+  void Start()
+  {
+    displaySpeed = FindObjectOfType<DisplaySpeed>();
+  }
 
   void FixedUpdate()
   {
     ProcessDownWard();
     Destroy(gameObject, 10f);
+    displaySpeed.DisplaySpeedText(xForce, accelerator);
   }
 
   void ProcessDownWard()
@@ -21,10 +29,12 @@ public class Meteor : MonoBehaviour
     {
       accelerator = 0.3f;
       transform.position += (Vector3.down * xForce * accelerator);
+      Debug.Log("speed: " + accelerator * xForce);
     }
     else
     {
       transform.position += (Vector3.down * xForce * accelerator);
+      Debug.Log("speed: " + accelerator * xForce);
     }
   }
 }
