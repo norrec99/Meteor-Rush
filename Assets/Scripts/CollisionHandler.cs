@@ -11,6 +11,8 @@ public class CollisionHandler : MonoBehaviour
 
   GameObject[] meteors;
   MeteorSpawner meteorSpawner;
+  GameObject[] gems;
+  GemSpawner gemSpawner;
   GameOver gameOver;
   ScoreCalculator scoreCalculator;
   BlinkingText blinkingText;
@@ -22,6 +24,7 @@ public class CollisionHandler : MonoBehaviour
   void Start()
   {
     meteorSpawner = FindObjectOfType<MeteorSpawner>();
+    gemSpawner = FindObjectOfType<GemSpawner>();
     gameOver = FindObjectOfType<GameOver>();
     scoreCalculator = FindObjectOfType<ScoreCalculator>();
     blinkingText = FindObjectOfType<BlinkingText>();
@@ -45,18 +48,28 @@ public class CollisionHandler : MonoBehaviour
     {
       StartCrashSequence();
       gameOver.GameOverText();
-      DestroyClones();
+      DestroyMeteorClones();
+      DestroyGemClones();
     }
-
   }
 
-  void DestroyClones()
+  void DestroyMeteorClones()
   {
     meteorSpawner.GetComponent<MeteorSpawner>().enabled = false;
     meteors = GameObject.FindGameObjectsWithTag("Meteor");
     foreach (GameObject meteor in meteors)
     {
       Destroy(meteor);
+    }
+  }
+
+  void DestroyGemClones()
+  {
+    gemSpawner.GetComponent<GemSpawner>().enabled = false;
+    gems = GameObject.FindGameObjectsWithTag("Gem");
+    foreach (GameObject gem in gems)
+    {
+      Destroy(gem);
     }
   }
 
