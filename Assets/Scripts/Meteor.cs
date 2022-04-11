@@ -17,9 +17,9 @@ public class Meteor : MonoBehaviour
   {
     accelerator = Time.timeSinceLevelLoad * 0.01f;
 
-    if (accelerator >= 0.25f)
+    if (accelerator >= 0.3f)
     {
-      accelerator = 0.25f;
+      accelerator = 0.3f;
       transform.position += (Vector3.down * xForce * accelerator);
     }
     else
