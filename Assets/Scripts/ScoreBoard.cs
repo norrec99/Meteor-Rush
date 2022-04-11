@@ -29,7 +29,7 @@ public class ScoreBoard : MonoBehaviour
     score += amountToIncrease * multiplier;
     int totalScore = Mathf.RoundToInt(score);
     int multiplierScore = Mathf.RoundToInt(multiplier * 10);
-    scoreText.text = "Score: " + totalScore.ToString() + " x" + multiplierScore.ToString();
+    scoreText.text = "Score: " + totalScore.ToString();
   }
 
 }
