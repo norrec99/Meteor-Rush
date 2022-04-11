@@ -508,7 +508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -265, y: 1424}
+  m_AnchoredPosition: {x: -241, y: 1424}
   m_SizeDelta: {x: -1254.5, y: -3056.5452}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613242840
@@ -550,7 +550,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 6
     m_MaxSize: 60
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -873,7 +873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -242, y: -1466}
+  m_AnchoredPosition: {x: -242, y: 1270}
   m_SizeDelta: {x: -1254.5, y: -3056.5452}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913772184
@@ -914,8 +914,8 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 6
-    m_MaxSize: 60
-    m_Alignment: 4
+    m_MaxSize: 108
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1552,14 +1552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 188840111036337699, guid: 717cb60f2ac1a1a41ad9c7bb1a169d88, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 188840111036337699, guid: 717cb60f2ac1a1a41ad9c7bb1a169d88, type: 3}
-      propertyPath: multiplier
-      value: 0.001
-      objectReference: {fileID: 0}
     - target: {fileID: 6291550207792546968, guid: 717cb60f2ac1a1a41ad9c7bb1a169d88, type: 3}
       propertyPath: m_Name
       value: PlayerShip
@@ -1608,6 +1600,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 188840111036337699, guid: 717cb60f2ac1a1a41ad9c7bb1a169d88, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717cb60f2ac1a1a41ad9c7bb1a169d88, type: 3}

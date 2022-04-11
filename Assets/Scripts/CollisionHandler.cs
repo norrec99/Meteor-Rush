@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
   [SerializeField] ParticleSystem explosionParticle;
+  [SerializeField] AudioClip explosionAudio;
   // [SerializeField] float levelLoadDelay = 2f;
 
   GameObject[] meteors;
@@ -14,6 +15,7 @@ public class CollisionHandler : MonoBehaviour
   GameOver gameOver;
   ScoreCalculator scoreCalculator;
   BlinkingText blinkingText;
+  AudioSource audioSource;
 
   bool isCollided = false;
 
@@ -26,6 +28,7 @@ public class CollisionHandler : MonoBehaviour
     scoreCalculator = FindObjectOfType<ScoreCalculator>();
     blinkingText = FindObjectOfType<BlinkingText>();
     blinkingText.StopBlinking();
+    audioSource = GetComponent<AudioSource>();
   }
 
   // Update is called once per frame
@@ -64,6 +67,7 @@ public class CollisionHandler : MonoBehaviour
   {
     isCollided = true;
     explosionParticle.Play();
+    audioSource.PlayOneShot(explosionAudio);
     blinkingText.StartBlinking();
     GetComponent<PlayerMovement>().enabled = false;
     scoreCalculator.GetComponent<ScoreCalculator>().enabled = false;
@@ -76,7 +80,6 @@ public class CollisionHandler : MonoBehaviour
       blinkingText.StopBlinking();
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
       isCollided = false;
-
     }
   }
 }
