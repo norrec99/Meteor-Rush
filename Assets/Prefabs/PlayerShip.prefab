@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 6291550207792546982}
   - component: {fileID: 6291550207792546969}
   - component: {fileID: 5706467367998870359}
+  - component: {fileID: 188840111036337699}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -386,8 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.15
-  multiplier: 0.1
-  scorePerSecond: 5
 --- !u!114 &6291550207792546969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +412,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionParticle: {fileID: 1092522086463462851}
-  levelLoadDelay: 2
+--- !u!114 &188840111036337699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6291550207792546968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344c02ec9085e0449a92f8945162e6c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.1
+  scorePerSecond: 5
 --- !u!1001 &1002072869947792331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,6 +508,10 @@ PrefabInstance:
     - target: {fileID: 198572881580852744, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198572881580852744, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+      propertyPath: useUnscaledTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198644593090298170, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
       propertyPath: playOnAwake

@@ -67,8 +67,6 @@ public class CollisionHandler : MonoBehaviour
     blinkingText.StartBlinking();
     GetComponent<PlayerMovement>().enabled = false;
     scoreCalculator.GetComponent<ScoreCalculator>().enabled = false;
-    // gameManager.DestroyPlayer();
-    // Destroy(gameObject, 0.5f);
   }
 
   void ReloadLevel()
