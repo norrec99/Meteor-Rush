@@ -4,45 +4,64 @@ using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
-  [SerializeField] float multiplier = 0.01f;
   [SerializeField] float scorePerSecond = 5f;
+  [SerializeField] AudioClip collectSound;
 
   ScoreBoard scoreBoard;
+  AudioSource audioSource;
 
+  MultiplierText multiplierText;
+
+  float multiplier = 0.01f;
   float totalScore;
   // Start is called before the first frame update
   void Start()
   {
     scoreBoard = FindObjectOfType<ScoreBoard>();
+    multiplierText = FindObjectOfType<MultiplierText>();
+    audioSource = GetComponent<AudioSource>();
   }
 
   // Update is called once per frame
   void Update()
   {
     CalculateScore();
+    multiplierText.DisplayMultiplier(multiplier * 100);
   }
 
   void CalculateScore()
   {
     if (Time.timeSinceLevelLoad > 5)
     {
-      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.05f);
+      IncreaseScore(totalScore, multiplier * 5);
     }
     else if (Time.timeSinceLevelLoad > 15)
     {
-      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.1f);
+      IncreaseScore(totalScore, multiplier * 10);
     }
     else if (Time.timeSinceLevelLoad > 25)
     {
-      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScoreWithMultiplier(totalScore, 0.5f);
+      IncreaseScore(totalScore, multiplier * 50);
     }
     else
     {
-      totalScore += scorePerSecond * multiplier * Time.timeSinceLevelLoad;
-      scoreBoard.IncreaseScore(totalScore);
+      IncreaseScore(totalScore, multiplier);
+    }
+  }
+
+  void IncreaseScore(float score, float factor)
+  {
+    score += scorePerSecond * factor * Time.timeSinceLevelLoad;
+    scoreBoard.IncreaseScore(score);
+  }
+
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.gameObject.tag == "Gem")
+    {
+      audioSource.PlayOneShot(collectSound);
+      multiplier += 0.01f;
+      Destroy(other.gameObject);
     }
   }
 }
